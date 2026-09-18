@@ -2658,3 +2658,62 @@ html[dir="rtl"] .flip-rtl {
     width: 100%;
   }
 }
+
+/* ===================== MOBILE DRAWER SCROLL FIX ===================== */
+.drawer {
+  /* allow internal scrolling instead of clipping */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.drawer .panel {
+  /* cap the panel height so long menus can scroll inside */
+  max-height: calc(100dvh - 110px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  /* keep rounded corners visible while scrolling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+/* Nice thin scrollbar for WebKit browsers */
+.drawer .panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.drawer .panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.drawer .panel::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 999px;
+  opacity: .6;
+}
+
+/* When a dropdown is open, make sure its items are reachable */
+.drawer .drawer-dropdown[open] {
+  padding-bottom: 6px;
+}
+
+/* On very short screens, tighten the panel padding */
+@media (max-height: 640px) {
+  .drawer {
+    padding-top: 78px;
+  }
+  .drawer .panel {
+    max-height: calc(100dvh - 90px);
+    padding: 12px;
+  }
+  .drawer .panel a,
+  .drawer-dropdown > summary {
+    padding: 11px 14px;
+    font-size: 15px;
+  }
+  .drawer-dropdown .drawer-sub a {
+    padding: 9px 14px;
+    font-size: 14px;
+  }
+}
