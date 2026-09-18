@@ -2717,3 +2717,98 @@ html[dir="rtl"] .flip-rtl {
     font-size: 14px;
   }
 }
+
+/* ===================== MOBILE DRAWER — SMALLER TEXT ===================== */
+
+/* Only apply on phones / small screens */
+@media (max-width: 640px) {
+
+  /* Top-level drawer links (Home, Contact, etc.) */
+  .drawer .panel > a {
+    padding: 12px 14px;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  /* The "Plumbing" summary row inside the accordion */
+  .drawer-dropdown > summary {
+    padding: 12px 14px;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  /* Accordion chevron stays small and aligned */
+  .drawer-dropdown > summary svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+  }
+
+  /* Sub-menu items (Water Heater Service, Water Tank, etc.) */
+  .drawer-dropdown .drawer-sub a {
+    padding: 10px 12px;
+    font-size: 13.5px;
+    line-height: 1.35;
+    gap: 8px;
+    /* keep long names on one or two tidy lines */
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* Smaller bullet dot so it doesn't crowd the text */
+  .drawer-dropdown .drawer-sub a::before {
+    width: 5px;
+    height: 5px;
+    margin-top: 1px;
+  }
+
+  /* Give the sub-panel a little breathing room */
+  .drawer-dropdown .drawer-sub {
+    padding: 4px 2px 6px;
+    gap: 1px;
+  }
+
+  /* WhatsApp / Call buttons in the drawer */
+  .drawer .panel .btn {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+}
+
+/* Even tighter on very small phones (iPhone SE, etc.) */
+@media (max-width: 380px) {
+  .drawer .panel {
+    padding: 12px;
+  }
+
+  .drawer .panel > a,
+  .drawer-dropdown > summary {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .drawer-dropdown .drawer-sub a {
+    font-size: 12.5px;
+    padding: 9px 10px;
+  }
+
+  .drawer .panel .btn {
+    font-size: 13px;
+    padding: 11px 14px;
+  }
+}
+
+/* Very short screens (landscape phones) */
+@media (max-height: 520px) and (max-width: 900px) {
+  .drawer .panel > a,
+  .drawer-dropdown > summary {
+    padding: 9px 12px;
+    font-size: 14px;
+  }
+
+  .drawer-dropdown .drawer-sub a {
+    padding: 8px 10px;
+    font-size: 12.5px;
+  }
+}
